@@ -10,6 +10,7 @@ git clone https://github.com/aleksandarpesic851/bellic-boxing
 
 ```
 composer install
+npm install
 ```
 
 ### Create Database
