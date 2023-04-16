@@ -10,10 +10,13 @@ git clone https://github.com/aleksandarpesic851/bellic-boxing
 
 ```
 composer install
+php artisan key:generate
 npm install
 ```
 
 ### Create Database
+
+Configuration database settings in .env file.
 
 ```
 php artisan migrate
