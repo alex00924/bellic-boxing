@@ -1,3 +1,24 @@
+## Install
+
+### Close Repository
+
+```
+git clone https://github.com/aleksandarpesic851/bellic-boxing
+```
+
+### Install Dependencies
+
+```
+composer install
+```
+
+### Create Database
+
+```
+php artisan migrate
+php artisan db:seed
+```
+
 ## Dependencies
 
 ### Authenticate - Breeze

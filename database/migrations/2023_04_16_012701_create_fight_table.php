@@ -11,25 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('fight', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->string('country');
             $table->string('state');
             $table->string('division');
-            $table->string('company');
             $table->string('rounds');
-            $table->string('phone');
+            $table->date('date');
             $table->boolean('passport');
             $table->boolean('visa');
-            $table->string('language');
-            $table->string('boxrec_id');
-            $table->string('home_town');
-            $table->string('avatar');
-            $table->rememberToken();
+            $table->integer('promoter');
+            $table->integer('oponent');
+            $table->text('notes');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }
@@ -39,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('fight');
     }
 };

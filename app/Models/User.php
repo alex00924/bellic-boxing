@@ -22,6 +22,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'country',
+        'state',
+        'company',
+        'rounds',
+        'phone',
+        'passport',
+        'visa',
+        'language',
+        'boxrec_id',
+        'home_town',
+        'avatar',
     ];
 
     /**
