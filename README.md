@@ -21,6 +21,12 @@ php artisan db:seed
 
 ## Dependencies
 
+### Livewire
+
+```
+composer require livewire/livewire
+```
+
 ### Authenticate - Breeze
 
 ```
@@ -34,4 +40,18 @@ php artisan breeze:install
 composer require spatie/laravel-permission
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan make:seeder RoleAndPermissionSeeder
+```
+
+### Country and State selection - laravel-simple-select
+
+https://github.com/victorybiz/laravel-simple-select
+
+```
+composer require victorybiz/laravel-simple-select
+# Publish the config file
+php artisan vendor:publish --tag=simple-select:config
+# Publish the view file
+php artisan vendor:publish --tag=simple-select:views
+# Javascript library
+npm install -D @popperjs/core
 ```

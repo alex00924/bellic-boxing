@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('country');
-            $table->string('state');
-            $table->string('division');
+            $table->int('country');
+            $table->int('state');
+            $table->int('division');
             $table->string('company');
             $table->string('rounds');
             $table->string('phone');

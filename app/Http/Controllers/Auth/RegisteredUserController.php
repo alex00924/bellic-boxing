@@ -22,6 +22,22 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
+    public function createBoxer(): View
+    {
+        return view('auth.register-boxer');
+    }
+    public function createManager(): View
+    {
+        return view('auth.register-manager');
+    }
+    public function createPromoter(): View
+    {
+        return view('auth.register-promoter');
+    }
+    public function createMatchMaker(): View
+    {
+        return view('auth.register-match-maker');
+    }
 
     /**
      * Handle an incoming registration request.
