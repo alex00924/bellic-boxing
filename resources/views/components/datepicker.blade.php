@@ -1,6 +1,6 @@
-<input {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>
+@props(['disabled' => false])
 
-{{-- <div 
+<div 
     x-init="[initDate(), getNoOfDays()]" x-cloak
     x-data="app(
         @if($attributes->whereStartsWith('wire:model')->first())
@@ -11,8 +11,10 @@
     )"
     >
     <div class="relative">
-        <input type="hidden" x-ref="date" wire:model.lazy="post_date" name="post_date"/>
-        <input type="text" x-on:click="showDatepicker = !showDatepicker" x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm {!! $attributes['class'] !!}" placeholder="Select date" readonly />
+        <input
+            readonly type="text" x-on:click="showDatepicker = !showDatepicker" x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false" 
+            {{ $disabled ? 'disabled' : '' }} 
+            {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>
 
         <div class="absolute top-0 right-0 px-3 py-2">
             <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,6 +79,7 @@
         </div>
     </div>
 </div>
+
   
 <script>
     const MONTH_NAMES = [
@@ -179,7 +182,7 @@
                 this.datepickerValue = this.formatDateForDisplay(
                     selectedDate
                 );
-                this.$refs.date.value = this.datepickerValue;
+                // this.$refs.date.value = this.datepickerValue;
                 this.isSelectedDate(date);
                 this.showDatepicker = false;
             },
@@ -207,4 +210,4 @@
             },
         };
     }
-</script> --}}
+</script>
