@@ -30,7 +30,7 @@ class CreateFight extends Component
             'state' => ['required'],
             'division' => ['required'],
             'round' => ['required'],
-            'post_date' => ['required'],
+            'post_date' => ['required', 'after_or_equal:' . now()->format('Y-m-d')],
             'oponent' => ['required'],
             'notes' => ['required', 'string', 'min:10'],
         ];
@@ -74,10 +74,10 @@ class CreateFight extends Component
             'created_by' => auth()->user()->id
         ]);
 
-        $this->emitTo('livewire.create-fight', 'refreshComponent');
+        $this->emit('create:fight');
 
         // show alert
-        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Created new fight']);
+        $this->notify('Created new fight.', 'success');
     }
 
     public function render()

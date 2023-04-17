@@ -88,16 +88,16 @@
                 <!-- Passport Visa -->
                 <div class="mt-4">
                     <!-- Passport -->
-                    <label for="passport" class="inline-flex items-center">
-                        <input id="passport" type="checkbox" 
+                    <label for="post_passport" class="inline-flex items-center">
+                        <input id="post_passport" type="checkbox" 
                             class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                             name="passport" wire:model.lazy="passport">
                         <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Passport') }}</span>
                     </label>
 
                     <!-- US Visa -->
-                    <label for="visa" class="ml-5 inline-flex items-center">
-                        <input id="visa" type="checkbox" 
+                    <label for="post_visa" class="ml-5 inline-flex items-center">
+                        <input id="post_visa" type="checkbox" 
                             class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                             name="visa" wire:model.lazy="visa">
                         <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('US Visa') }}</span>

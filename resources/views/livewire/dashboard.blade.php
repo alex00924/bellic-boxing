@@ -6,5 +6,7 @@
     </x-slot>
 
     @livewire('search-fight')
-    @livewire('create-fight')
+    @can('match-maker')
+        @livewire('create-fight')
+    @endcan
 </div>

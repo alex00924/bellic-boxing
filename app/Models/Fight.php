@@ -21,7 +21,6 @@ class Fight extends Model
         'date',
         'passport',
         'visa',
-        'promoter',
         'oponent',
         'notes',
         'created_by'

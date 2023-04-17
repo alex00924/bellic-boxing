@@ -16,11 +16,16 @@ class SearchFight extends Component
     public $state = '0';
     public $division = '0';
     public $round = 'All';
-    public $passport = false;
-    public $visa = false;
+    public $passport = 0;
+    public $visa = 0;
+    // protected $listeners = ['create:fight' => '$refresh'];
+    protected $listeners = ['create:fight' => 'refreshSearchFight'];
 
-    protected $listeners = ['refreshComponent' => '$refresh'];
-    
+    public function refreshSearchFight()
+    {
+        $this->filterFights();
+    }
+
     public function mount()
     {
         $this->countries = \App\Models\Country::orderBy('name')->get()->toArray();
@@ -28,6 +33,8 @@ class SearchFight extends Component
 
         $this->divisions = \App\Models\Division::get()->toArray();
         array_unshift($this->divisions, ['id' => 0, 'name' => 'All']);
+
+        $this->filterFights();
     }
 
     public function updated()
@@ -66,6 +73,11 @@ class SearchFight extends Component
         $fightEloquent = $fightEloquent->whereDate('date', '>=', now());
 
         $this->fights = $fightEloquent->get()->toArray();
+    }
+
+    public function showModal($id)
+    {
+        $this->emit('modal:fight-detail', $id);
     }
 
     public function render()

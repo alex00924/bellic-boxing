@@ -1,18 +1,17 @@
 @props(['disabled' => false])
-
 <div 
     x-init="[initDate(), getNoOfDays()]" x-cloak
-    x-data="app(
+    x-data="app({
         @if($attributes->whereStartsWith('wire:model')->first())
-            @entangle($attributes->wire('model'))
+            value: @entangle($attributes->wire('model'))
         @else
-            ''
+            value: ''
         @endif
-    )"
+    })"
     >
     <div class="relative">
         <input
-            readonly type="text" x-on:click="showDatepicker = !showDatepicker" x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false" 
+             type="text" x-on:click="showDatepicker = !showDatepicker" x-model="value" x-on:keydown.escape="showDatepicker = false" 
             {{ $disabled ? 'disabled' : '' }} 
             {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>
 
@@ -112,11 +111,11 @@
     ];
     const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    function app(initialVal) {
+    function app(config) {
         return {
             showDatepicker: false,
-            datepickerValue: "",
-            selectedDate: initialVal,
+            value: config.value,
+            selectedDate: config.value,
             dateFormat: "YYYY-MM-DD",
             month: "",
             year: "",
@@ -131,7 +130,7 @@
                 }
                 this.month = today.getMonth();
                 this.year = today.getFullYear();
-                this.datepickerValue = this.formatDateForDisplay(
+                this.value = this.formatDateForDisplay(
                     today
                 );
             },
@@ -161,7 +160,7 @@
             },
             isSelectedDate(date) {
                 const d = new Date(this.year, this.month, date);
-                return this.datepickerValue ===
+                return this.value ===
                     this.formatDateForDisplay(d) ?
                     true :
                     false;
@@ -179,10 +178,10 @@
                     this.month,
                     date
                 );
-                this.datepickerValue = this.formatDateForDisplay(
+                this.value = this.formatDateForDisplay(
                     selectedDate
                 );
-                // this.$refs.date.value = this.datepickerValue;
+                // this.$refs.date.value = this.value;
                 this.isSelectedDate(date);
                 this.showDatepicker = false;
             },

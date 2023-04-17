@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('date');
             $table->boolean('passport');
             $table->boolean('visa');
-            $table->integer('promoter');
             $table->string('oponent');
             $table->text('notes');
             $table->integer('created_by');
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fight');
+        Schema::dropIfExists('fights');
     }
 };

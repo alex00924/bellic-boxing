@@ -52,18 +52,18 @@
                 </main>
             </div>
         @endauth
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-       
-       <script>
+        <x-notification />
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+       {{-- <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+            }
+
             window.addEventListener('alert', 
                 event => { 
                     toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
-                    toastr.options = {
-                        "closeButton": true,
-                        "progressBar": true,
-                    }
                 })
-        </script>
+        </script> --}}
     </body>
 </html>

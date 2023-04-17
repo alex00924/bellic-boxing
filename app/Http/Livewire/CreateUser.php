@@ -15,12 +15,14 @@ class CreateUser extends Component
     public $countries = [];
     public $states = [];
     public $account_types = ['Boxer', 'Promoter', 'Match Maker', 'Manager'];
+    public $genders = ['Male', 'Female'];
     public $divisions = [];
     public $rounds = ['4', '6', '8', '10'];
     public $languages = ['English', 'Spanish', 'Portuguese'];
 
     public $account_type = 'Boxer';
     public $name = '';
+    public $gender = 'Male';
     public $email = '';
     public $password = '';
     public $password_confirmation = '';
@@ -41,6 +43,7 @@ class CreateUser extends Component
         return [
             'account_type' => ['required'],
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'country' => ['required'],
@@ -60,6 +63,7 @@ class CreateUser extends Component
 
         $user = User::create([
             'name' => $this->name,
+            'gender' => $this->gender,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'country' => $this->country,
