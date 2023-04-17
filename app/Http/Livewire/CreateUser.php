@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class CreateUser extends Component
 {
@@ -20,13 +22,14 @@ class CreateUser extends Component
     public $account_type = 'Boxer';
     public $name = '';
     public $email = '';
-    public $phone = '';
     public $password = '';
     public $password_confirmation = '';
     public $country = '';
     public $state = '';
     public $division = '';
+    public $company = '';
     public $round = '4';
+    public $phone = '';
     public $passport = false;
     public $visa = false;
     public $language = 'English';
@@ -59,11 +62,12 @@ class CreateUser extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'phone' => $this->phone,
             'country' => $this->country,
             'state' => $this->state,
             'division' => $this->division,
+            'company' => $this->company,
             'round' => $this->round,
+            'phone' => $this->phone,
             'passport' => $this->passport,
             'visa' => $this->visa,
             'language' => $this->language,
