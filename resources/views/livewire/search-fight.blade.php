@@ -120,19 +120,19 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                                 wire:click="showModal({{$item['id']}})">
                                 {{-- @click="Livewire.emit('modal:fight-detail', {{$item['id']}})"> --}}
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{$item['division']}}
+                                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                    {{$item['division_detail']['name']}}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{$item['country']}}
+                                    {{$item['country_detail']['name']}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$item['state']}}
+                                    {{$item['state_detail']['name']}}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{$item['oponent']}}
                                 </td>
-                                <td class="px-6 py-4 text-right">
+                                <td class="px-6 py-4">
                                     {{$item['date']}}
                                 </td>
                             </tr>

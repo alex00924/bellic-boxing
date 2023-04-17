@@ -25,4 +25,24 @@ class Fight extends Model
         'notes',
         'created_by'
     ];
+
+    public function countryDetail()
+    {
+        return $this->hasOne('App\Models\Country', 'id', 'country');
+    }
+
+    public function stateDetail()
+    {
+        return $this->hasOne('App\Models\State', 'id', 'state');
+    }
+
+    public function divisionDetail()
+    {
+        return $this->hasOne('App\Models\Division', 'id', 'division');
+    }
+
+    public function createrDetail()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'created_by');
+    }
 }

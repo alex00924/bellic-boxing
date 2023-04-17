@@ -72,7 +72,9 @@ class SearchFight extends Component
         $fightEloquent = $fightEloquent->where('visa', $this->visa);
         $fightEloquent = $fightEloquent->whereDate('date', '>=', now());
 
-        $this->fights = $fightEloquent->get()->toArray();
+        $this->fights = $fightEloquent
+            ->with(['countryDetail', 'stateDetail', 'divisionDetail', 'createrDetail'])
+            ->get()->toArray();
     }
 
     public function showModal($id)
