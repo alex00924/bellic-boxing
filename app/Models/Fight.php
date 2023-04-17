@@ -16,7 +16,8 @@ class Fight extends Model
     protected $fillable = [
         'country',
         'state',
-        'rounds',
+        'division',
+        'round',
         'date',
         'passport',
         'visa',
@@ -25,6 +26,4 @@ class Fight extends Model
         'notes',
         'created_by'
     ];
-
-
 }

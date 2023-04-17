@@ -11,7 +11,7 @@
                 :options="$account_types"
                 placeholder="Register As"
                 :searchable="false"                                               
-                class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"     
+                class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"     
             />
             <x-input-error :messages="$errors->get('account_type')" class="mt-2" />
         </div>
@@ -35,7 +35,7 @@
                 placeholder="Select Country"
                 search-input-placeholder="Search Country"
                 :searchable="true"                                               
-                class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"     
+                class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"     
             />
             <x-input-error :messages="$errors->get('country')" class="mt-2" />
         </div>
@@ -52,7 +52,7 @@
                 placeholder="Select State"
                 search-input-placeholder="Search State"
                 :searchable="true"                       
-                class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
             />
             <x-input-error :messages="$errors->get('state')" class="mt-2" />
         </div>
@@ -70,7 +70,7 @@
                     text-field='name'
                     placeholder="Select Division"
                     :searchable="false"                                               
-                    class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                    class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                 />
                 <x-input-error :messages="$errors->get('division')" class="mt-2" />
             </div>
@@ -84,7 +84,7 @@
                     :options="$rounds"
                     :searchable="false"                                               
                     placeholder="Select Round"
-                    class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                    class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                 />
                 <x-input-error :messages="$errors->get('division')" class="mt-2" />
             </div>
@@ -152,12 +152,11 @@
                 :options="$languages"
                 :searchable="false"                                               
                 placeholder="Select Language"
-                class="py-1.5 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
             />
             <x-input-error :messages="$errors->get('language')" class="mt-2" />
         </div>
 
-        
         <!-- BoxRec ID -->
         <div class="mt-4">
             <x-input-label for="home_town" :value="__('Home Town')" />

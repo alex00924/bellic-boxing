@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fight', function (Blueprint $table) {
+        Schema::create('fights', function (Blueprint $table) {
             $table->id();
             $table->string('country');
             $table->string('state');
             $table->string('division');
-            $table->string('rounds');
+            $table->string('round');
             $table->date('date');
             $table->boolean('passport');
             $table->boolean('visa');
             $table->integer('promoter');
-            $table->integer('oponent');
+            $table->string('oponent');
             $table->text('notes');
             $table->integer('created_by');
             $table->timestamps();

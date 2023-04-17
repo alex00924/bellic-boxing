@@ -48,9 +48,22 @@
                 <!-- Page Content -->
                 <main>
                     {{ $slot }}
+                    @livewireScripts
                 </main>
             </div>
         @endauth
-
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+       
+       <script>
+            window.addEventListener('alert', 
+                event => { 
+                    toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
+                    toastr.options = {
+                        "closeButton": true,
+                        "progressBar": true,
+                    }
+                })
+        </script>
     </body>
 </html>
