@@ -22,6 +22,7 @@ class Fight extends Model
         'passport',
         'visa',
         'oponent',
+        'applied_by',
         'notes',
         'created_by'
     ];
@@ -39,6 +40,11 @@ class Fight extends Model
     public function divisionDetail()
     {
         return $this->hasOne('App\Models\Division', 'id', 'division');
+    }
+
+    public function applyerDetail()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'applied_by');
     }
 
     public function createrDetail()

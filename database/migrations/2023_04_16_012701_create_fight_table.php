@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('visa');
             $table->string('oponent');
             $table->text('notes');
+            $table->integer('applied_by')->nullable();
             $table->integer('created_by');
             $table->timestamps();
         });

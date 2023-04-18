@@ -1,4 +1,4 @@
-<div class="pt-12">
+<div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 p-5 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <h3 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Search Fights') }}

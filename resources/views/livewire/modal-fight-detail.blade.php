@@ -1,4 +1,4 @@
-<div x-data="{ modelOpen: @entangle('showModal') }">
+<div x-data="{ modelOpen: @entangle('show') }">
     <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
             <div x-cloak @click="modelOpen = false" x-show="modelOpen" 
@@ -73,20 +73,41 @@
                         </p>
                     </div>
 
-                    <form class="mt-5" wire:submit.prevent="applyFight">
-                        <!-- Boxrec ID -->
-                        <div class="mt-4">
-                            <x-input-label class="dark:text-gray-500" for="boxrec_id" :value="__('Boxrec ID')" />
-                            <x-text-input id="boxrec_id" class="block mt-1 w-full" type="text" name="boxrec_id" wire:model.lazy="boxrec_id" required autocomplete="boxrec_id" />
-                            <x-input-error :messages="$errors->get('boxrec_id')" class="mt-2" />
-                        </div>
-                        
+                    @if (empty($fight->applyerDetail))
+                        @can('boxer')
+                            <form class="mt-5" wire:submit.prevent="applyFight">
+                                @if(empty(auth()->user()->boxrec_id))
+                                    <!-- Boxrec ID -->
+                                    <div class="mt-4">
+                                        <x-input-label class="dark:text-gray-500" for="boxrec_id" :value="__('Boxrec ID')" />
+                                        <x-text-input id="boxrec_id" class="block mt-1 w-full" type="text" name="boxrec_id" wire:model.lazy="boxrec_id" required autocomplete="boxrec_id" />
+                                        <x-input-error :messages="$errors->get('boxrec_id')" class="mt-2" />
+                                    </div>
+                                @endif
+                                
+                                <div class="flex justify-end mt-6">
+                                    <x-primary-button>
+                                        {{ __('Apply') }}
+                                    </x-primary-button>
+                                </div>
+                            </form>
+                        @endcan
+                    @else
+                        @if ($fight->applied_by == auth()->user()->id)
                         <div class="flex justify-end mt-6">
-                            <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
-                                Apply
-                            </button>
+                            <x-primary-button>
+                                {{ __('Applied') }}
+                            </x-primary-button>
                         </div>
-                    </form>
+                        @else
+                            <div class="flex justify-end mt-6">
+                                <p>
+                                    <strong class="font-medium text-gray-500">Applyer: </strong>
+                                    {{ $fight->applyerDetail->name }}
+                                </p>
+                            </div>
+                        @endif
+                    @endif
                 @endif
             </div>
         </div>
