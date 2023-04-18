@@ -12,8 +12,5 @@
         @if($user->id == auth()->user()->id)
             <input type="file" name="avatar" id="avatar" class="hidden" wire:model="avatar">
         @endif
-        <p class="text-center text-gray-300">
-            {{$user->name}}
-        </p>
     </form>
 </div>

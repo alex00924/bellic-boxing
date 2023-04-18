@@ -60,10 +60,11 @@ class User extends Authenticatable
     {
         $url = '';
         try {
-            if (!$this->avatar) {
+            if ($this->avatar) {
+                $url = asset('storage/' . $this->avatar);
+            } else {
                 $url = asset('images/default_avatar.png');
             }
-            $url = asset('storage/' . $this->avatar);
         } catch (Throwable $e) {
             $url = asset('images/default_avatar.png');
         }
