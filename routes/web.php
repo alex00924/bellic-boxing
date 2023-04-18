@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\MyApplication;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +26,13 @@ Route::post('get-cities-by-state', 'CountryStateCityController@getCity');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('can:boxer')->group(function () {
+    Route::get('/boxer/application', MyApplication::class)->name('boxer.application');
 });
 
 require __DIR__ . '/auth.php';
