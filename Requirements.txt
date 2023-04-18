@@ -24,22 +24,22 @@ Country, State, Division, Rounds, Date, US Visa, Passport, Promoter, Oponent, No
 
 
 ------- Boxer --------
-Home - Search a fight ( country, state, division, round, passport, US.Visa)Pro
+*************** Home - Search a fight ( country, state, division, round, passport, US.Visa)Pro
 Profile - Image, Name, Hometown, Division, Rounds, Passport, U.S. Visa, Boxrec Profile,           (My Manager, Review, Rating, My Application - not editable by oneself)
-My Application - Active Application List (Over Due Application remove automatically)
+*************** My Application - Active Application List (Over Due Application remove automatically)
 My Inbox
 My Message
 
 ----- Match Maker-----
-Home - Search a fight
-	Post a fight
+*************** Home - Search a fight
+	*************** Post a fight
 Profile - Image, Name, Hometown, Matchmarker at, ( Recent Hires, Recent Fight Posts, Review, Rating, My Posts - not editable by oneself)
-My Posts - Active Posts (Over due posts remove automatically)
+*************** My Posts - Active Posts (Over due posts remove automatically)
 My Inbox
 My Message
 
 ---- Manager ----
-Home - Search a fight
+*************** Home - Search a fight
 Profile - Image, Name, Hometown, Management Company, (My boxers, Review, Rating)
 My Inbox
 My Message

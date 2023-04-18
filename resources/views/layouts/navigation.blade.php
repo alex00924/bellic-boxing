@@ -21,7 +21,16 @@
                     <!-- My Application -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('boxer.application')" :active="request()->routeIs('boxer.application')">
-                            {{ __('My Application') }}
+                            {{ __('My Applications') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('match-maker')
+                    <!-- My Application -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('matchmaker.post')" :active="request()->routeIs('matchmaker.post')">
+                            {{ __('My Posts') }}
                         </x-nav-link>
                     </div>
                 @endcan
@@ -43,7 +52,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -89,7 +98,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
