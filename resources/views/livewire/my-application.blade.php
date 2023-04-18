@@ -26,6 +26,9 @@
                             <th scope="col" class="px-6 py-3">
                                 {{__('Date')}}
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                {{__('Cancel')}}
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +57,9 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         {{$item['date']}}
+                                    </td>
+                                    <td class="px-6 py-4 cursor-pointer" wire:click.stop="cancelFight({{$item['id']}})">
+                                        {{ __("Cancel") }}
                                     </td>
                                 </tr>
                             @endforeach

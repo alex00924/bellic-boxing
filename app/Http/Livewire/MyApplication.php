@@ -10,6 +10,11 @@ class MyApplication extends Component
 
     public function mount()
     {
+        $this->getFights();
+    }
+
+    private function getFights()
+    {
         $this->fights = \App\Models\Fight::orderBy('date')
             ->where('applied_by', auth()->user()->id)
             ->whereDate('date', '>=', now())
@@ -20,6 +25,15 @@ class MyApplication extends Component
     public function showModal($id)
     {
         $this->emit('modal:fight-detail', $id);
+    }
+
+    public function cancelFight($id)
+    {
+        $fight = \App\Models\Fight::find($id);
+        $fight->update(['applied_by' => null]);
+
+        $this->notify('You cancelled a fight.', 'success');
+        $this->getFights();
     }
 
     public function render()
