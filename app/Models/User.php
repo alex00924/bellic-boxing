@@ -58,9 +58,15 @@ class User extends Authenticatable
 
     public function avatar()
     {
-        if (!$this->avatar) {
-            return asset('storage/images/default_avatar.jpg');
+        $url = '';
+        try {
+            if (!$this->avatar) {
+                $url = asset('images/default_avatar.png');
+            }
+            $url = asset('storage/' . $this->avatar);
+        } catch (Throwable $e) {
+            $url = asset('images/default_avatar.png');
         }
-        return asset('storage/' . $this->avatar());
+        return $url;
     }
 }

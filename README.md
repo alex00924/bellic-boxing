@@ -23,6 +23,12 @@ php artisan migrate
 php artisan db:seed
 ```
 
+### Link Storage
+
+```
+php artisan storage:link
+```
+
 ## Dependencies
 
 ### Livewire
