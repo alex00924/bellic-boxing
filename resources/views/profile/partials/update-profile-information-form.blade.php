@@ -135,6 +135,12 @@
                     <x-primary-button>{{ __('Save') }}</x-primary-button>
                 </div>
             </form>
+
+            @if($user->hasRole('MatchMaker'))
+                @include('profile.partials.recent-posts', ['fights' => $myPosts])
+            @elseif($user->hasRole('Manager'))
+            @elseif($user->hasRole('Promoter'))
+            @endif
         </div>
     </div>
 </section>

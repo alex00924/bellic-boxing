@@ -16,6 +16,7 @@ class Profile extends Component
     public $divisions = [];
     public $rounds = ['4', '6', '8', '10'];
     public $languages = ['English', 'Spanish', 'Portuguese'];
+    public $myPosts = [];
 
     public $user;
     public $WLD = ['win' => 0, 'loos' => 0, 'draw' => 0, 'win_ko' => 0, 'loos_ko' => 0];
@@ -27,6 +28,7 @@ class Profile extends Component
     public $state = '';
     public $division = '';
     public $company = '';
+    public $matchmaker_at = '';
     public $round = '4';
     public $phone = '';
     public $passport = false;
@@ -85,6 +87,7 @@ class Profile extends Component
         $this->state = $this->user->state;
         $this->division = $this->user->division;
         $this->company = $this->user->company;
+        $this->matchmaker_at = $this->user->matchmaker_at;
         $this->round = $this->user->round;
         $this->phone = $this->user->phone;
         $this->passport = $this->user->passport;
@@ -92,6 +95,14 @@ class Profile extends Component
         $this->language = $this->user->language;
         $this->boxrec_id = $this->user->boxrec_id;
         $this->home_town = $this->user->home_town;
+
+        if ($this->user->hasRole('MatchMaker')) {
+            $this->myPosts = \App\Models\Fight::orderBy('date')
+                ->where('created_by', $this->user->id)
+                ->whereDate('date', '>=', now())
+                ->with(['countryDetail', 'stateDetail', 'divisionDetail', 'createrDetail'])
+                ->get()->toArray();
+        }
     }
 
     private function getWLD()
@@ -139,6 +150,7 @@ class Profile extends Component
             'country' => $this->country,
             'state' => $this->state,
             'division' => $this->division,
+            'matchmaker_at' => $this->matchmaker_at,
             'company' => $this->company,
             'round' => $this->round,
             'phone' => $this->phone,

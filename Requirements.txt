@@ -50,3 +50,6 @@ Home - Upcoming Boxing Show
 	Country, State, Slots Available, Name of the event, Stream/TV/APP link, Date
 
 Profile - Image, Name, Hometown, Promoter company, Boxers, Previous Boxing shows, Rate, Review
+
+
+https://boxrec.com/en/box-pro/479205
