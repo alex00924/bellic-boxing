@@ -27,6 +27,7 @@ class User extends Authenticatable
         'state',
         'division',
         'company',
+        'matchmaker_at',
         'round',
         'phone',
         'passport',
@@ -69,5 +70,10 @@ class User extends Authenticatable
             $url = asset('images/default_avatar.png');
         }
         return $url;
+    }
+
+    public function myReviews()
+    {
+        return $this->hasMany('App\Models\Review', 'id', 'to');
     }
 }

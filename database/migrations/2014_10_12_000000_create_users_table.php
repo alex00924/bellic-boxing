@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('country');
             $table->integer('state');
             $table->integer('division')->nullable();
+            $table->string('matchmaker_at')->nullable();
             $table->string('company')->nullable();
             $table->string('round')->nullable();
             $table->string('phone');

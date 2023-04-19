@@ -22,9 +22,9 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Name -->
+        <!-- Gender -->
         <div class="mt-4">
-            <x-input-label for="name" :value="__('Gender')" />
+            <x-input-label for="gender" :value="__('Gender')" />
             <x-simple-select       
                 wire:model.lazy="gender"
                 name="gender"
@@ -33,7 +33,7 @@
                 :searchable="false"                                               
                 class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"     
             />
-            <x-input-error :messages="$errors->get('account_type')" class="mt-2" />
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
 
         <!-- Country -->
@@ -100,7 +100,7 @@
                     placeholder="Select Round"
                     class="py-1 block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                 />
-                <x-input-error :messages="$errors->get('division')" class="mt-2" />
+                <x-input-error :messages="$errors->get('round')" class="mt-2" />
             </div>
         @else
             <!-- Company -->
