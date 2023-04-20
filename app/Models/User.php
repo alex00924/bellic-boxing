@@ -77,6 +77,47 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Review', 'to', 'id');
     }
 
+    public function myBoxers()
+    {
+        return $this->hasMany('App\Models\MyBoxer', 'owner_id', 'id');
+    }
+
+    // public function myManager()
+    // {
+    //     $owners = $this->hasMany('App\Models\MyBoxer', 'boxer_id', 'id')
+    //         ->with('owner')->get();
+
+    //     foreach ($owners as $owner) {
+    //         if ($owner->owner->hasRole('Manager')) {
+    //             return $owner;
+    //         }
+    //     }
+    // }
+
+    // public function myMtachMaker()
+    // {
+    //     $owners = $this->hasMany('App\Models\MyBoxer', 'boxer_id', 'id')
+    //         ->with('owner')->get();
+
+    //     foreach ($owners as $owner) {
+    //         if ($owner->owner->hasRole('MatchMaker')) {
+    //             return $owner;
+    //         }
+    //     }
+    // }
+
+    // public function myPromoter()
+    // {
+    //     $owners = $this->hasMany('App\Models\MyBoxer', 'boxer_id', 'id')
+    //         ->with('owner')->get();
+
+    //     foreach ($owners as $owner) {
+    //         if ($owner->owner->hasRole('Promoter')) {
+    //             return $owner;
+    //         }
+    //     }
+    // }
+
     public function countryDetail()
     {
         return $this->belongsTo('App\Models\Country', 'country', 'id');

@@ -67,6 +67,10 @@
                 @endif
             </div>
 
+            @if(!$user->hasRole('Boxer'))
+                @livewire('my-boxer', ['editable' => false, 'separatable' => false])
+            @endif
+
             @if($user->hasRole('MatchMaker'))
                 @include('profile.partials.recent-posts', ['fights' => $myPosts])
             @elseif($user->hasRole('Manager'))

@@ -26,6 +26,15 @@
                     </div>
                 @endcan
 
+                @cannot('boxer')
+                    <!-- My Boxers -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('myboxer')" :active="request()->routeIs('myboxer')">
+                            {{ __('My Boxers') }}
+                        </x-nav-link>
+                    </div>
+                @endcannot
+
                 @can('match-maker')
                     <!-- My Application -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

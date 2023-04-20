@@ -145,6 +145,9 @@
                     <x-primary-button>{{ __('Save') }}</x-primary-button>
                 </div>
             </form>
+            @if(!$user->hasRole('Boxer'))            
+                @livewire('my-boxer', ['editable' => false, 'separatable' => false])
+            @endif
 
             @if($user->hasRole('MatchMaker'))
                 @include('profile.partials.recent-posts', ['fights' => $myPosts])
