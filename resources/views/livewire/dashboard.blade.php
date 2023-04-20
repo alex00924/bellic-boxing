@@ -4,9 +4,12 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    @livewire('search-fight')
-    @can('match-maker')
-        @livewire('create-fight')
+    @can('promoter')
+        @livewire('boxing-show')
+    @else
+        @livewire('search-fight')
+        @can('match-maker')
+            @livewire('create-fight')
+        @endcan
     @endcan
 </div>

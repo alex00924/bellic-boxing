@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\MyApplication;
 use App\Http\Livewire\MyBoxer;
+use App\Http\Livewire\MyBoxingShow;
 use App\Http\Livewire\MyClient;
 use App\Http\Livewire\MyFightPost;
 use App\Http\Livewire\Profile;
@@ -44,6 +45,10 @@ Route::middleware('can:boxer')->group(function () {
 
 Route::middleware('can:match-maker')->group(function () {
     Route::get('/match-maker/post', MyFightPost::class)->name('matchmaker.post');
+});
+
+Route::middleware('can:promoter')->group(function () {
+    Route::get('/my_boxing_show', MyBoxingShow::class)->name('myboxingshow');
 });
 
 require __DIR__ . '/auth.php';

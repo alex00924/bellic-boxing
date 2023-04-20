@@ -88,6 +88,7 @@
                 @include('profile.partials.recent-posts', ['fights' => $myPosts])
             @elseif($user->hasRole('Manager'))
             @elseif($user->hasRole('Promoter'))
+                @livewire('my-boxing-show', ['userId' => $user->id, 'separatable' => false])
             @endif
         </div>
     </div>

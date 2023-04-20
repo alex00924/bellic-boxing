@@ -22,7 +22,7 @@ class RoleAndPermissionSeeder extends Seeder
         $boxerRole = Role::create(['name' => 'Boxer']);
         $matchMakerRole = Role::create(['name' => 'MatchMaker']);
         $managerRole = Role::create(['name' => 'Manager']);
-        $promoterRole = Role::create(['name' => 'promoter']);
+        $promoterRole = Role::create(['name' => 'Promoter']);
 
         $boxerRole->givePermissionTo(['boxer']);
         $matchMakerRole->givePermissionTo(['match-maker']);

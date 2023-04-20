@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Show extends Model
 {
     use HasFactory;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +23,19 @@ class Show extends Model
         'date',
         'created_by'
     ];
+
+    public function countryDetail()
+    {
+        return $this->hasOne('App\Models\Country', 'id', 'country');
+    }
+
+    public function stateDetail()
+    {
+        return $this->hasOne('App\Models\State', 'id', 'state');
+    }
+
+    public function createrDetail()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'created_by');
+    }
 }

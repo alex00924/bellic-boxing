@@ -25,7 +25,7 @@
                         <div x-text="32 - new Date(year, month, 32).getDate()"></div>
                         <div x-text="new Date(year, month).getDay()"></div> -->
 
-        <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem" x-show.transition="showDatepicker" @click.away="showDatepicker = false">
+        <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0 z-10" style="width: 17rem" x-show.transition="showDatepicker" @click.away="showDatepicker = false">
             <div class="flex justify-between items-center mb-2">
             <div>
                 <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>
