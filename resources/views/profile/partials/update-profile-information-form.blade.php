@@ -113,10 +113,19 @@
                             <a class="text-blue-500 text-lg" href="https://boxrec.com/en/box-pro/{{$boxrec_id}}"> Boxrec Profile </a>
                         </div>
 
+                        
                         <!-- My Manager -->
-                        <div class="mt-4">
-                            <a class="text-blue-500 text-lg" href="/profile/{{$user->id}}"> My Manager </a>
-                        </div>
+                        <p class="mt-4">
+                            <strong class="font-medium text-gray-500">My Manager:</strong>
+                            @if (empty($myManager))
+                                <span class="font-medium text-gray-300"> {{ __('Not Hired') }}</span>
+                            @else
+                                <a class="font-medium text-blue-500 text-lg" href="/profile/{{$myManager['id']}}">
+                                    {{ $myManager['name'] }}
+                                </a>
+                            @endif
+                        </p>
+
                     @elseif($user->hasRole('MatchMaker'))
                         <!-- MatchMaker at -->
                         <div class="mt-4">

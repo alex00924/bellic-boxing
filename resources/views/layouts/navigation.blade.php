@@ -26,7 +26,14 @@
                     </div>
                 @endcan
 
-                @cannot('boxer')
+                @can('boxer')
+                    <!-- My Clients -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('myclient')" :active="request()->routeIs('myclient')">
+                            {{ __('My Clients') }}
+                        </x-nav-link>
+                    </div>
+                @else
                     <!-- My Boxers -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('myboxer')" :active="request()->routeIs('myboxer')">

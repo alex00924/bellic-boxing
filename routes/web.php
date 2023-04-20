@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\MyApplication;
 use App\Http\Livewire\MyBoxer;
+use App\Http\Livewire\MyClient;
 use App\Http\Livewire\MyFightPost;
 use App\Http\Livewire\Profile;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/profile/{id?}', Profile::class)->name('profile');
     Route::get('/my_boxers', MyBoxer::class)->name('myboxer');
+    Route::get('/my_clients', MyClient::class)->name('myclient');
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

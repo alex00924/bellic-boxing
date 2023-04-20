@@ -37,6 +37,11 @@ class Profile extends Component
     public $boxrec_id = '';
     public $home_town = '';
 
+    public $myManager;
+    public $myMatchMaker;
+    public $myPromoter;
+
+
     protected function rules()
     {
         return [
@@ -102,6 +107,34 @@ class Profile extends Component
                 ->whereDate('date', '>=', now())
                 ->with(['countryDetail', 'stateDetail', 'divisionDetail', 'createrDetail'])
                 ->get()->toArray();
+        }
+
+        if ($this->user->hasRole('Boxer')) {
+            $this->getOwners();
+        }
+    }
+
+
+    private function getOwners()
+    {
+        $this->myManager = null;
+        $this->myPromoter = null;
+        $this->myMatchMaker = null;
+
+        $myBoxers = \App\Models\MyBoxer::where('boxer_id', $this->user->id)->get()->toArray();
+        foreach ($myBoxers as $myBoxer) {
+            $client = User::where('id', $myBoxer['owner_id'])
+                ->with(['countryDetail', 'stateDetail', 'divisionDetail'])->first();
+            $clientDetail = $client->toArray();
+            $clientDetail['myBoxer'] = $myBoxer;
+
+            if ($client->hasRole('Manager')) {
+                $this->myManager = $clientDetail;
+            } else if ($client->hasRole('Promoter')) {
+                $this->myPromoter = $clientDetail;
+            } else if ($client->hasRole('MatchMaker')) {
+                $this->myMatchMaker = $clientDetail;
+            }
         }
     }
 
