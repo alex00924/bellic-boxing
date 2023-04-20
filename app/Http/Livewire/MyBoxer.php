@@ -13,6 +13,7 @@ class MyBoxer extends Component
     public $canEdit = true;
     public $isSeparatePage = true;
     public $ownerId = null;
+
     protected function rules()
     {
         return [

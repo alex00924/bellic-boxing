@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Chat;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\MyApplication;
 use App\Http\Livewire\MyBoxer;
@@ -33,13 +34,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/profile/{id?}', Profile::class)->name('profile');
     Route::get('/my_boxers', MyBoxer::class)->name('myboxer');
-    Route::get('/my_clients', MyClient::class)->name('myclient');
+    Route::get('/chat', Chat::class)->name('chat');
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware('can:boxer')->group(function () {
+    Route::get('/my_clients', MyClient::class)->name('myclient');
     Route::get('/boxer/application', MyApplication::class)->name('boxer.application');
 });
 
