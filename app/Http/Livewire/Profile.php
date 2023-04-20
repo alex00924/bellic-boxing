@@ -166,6 +166,11 @@ class Profile extends Component
         $this->notify('Your profile was updated.', 'success');
     }
 
+    public function showFightDetailModal($id)
+    {
+        $this->emit('modal:fight-detail', $id);
+    }
+
     public function render()
     {
         if ($this->user->id == auth()->user()->id) {

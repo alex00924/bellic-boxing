@@ -1,4 +1,4 @@
-<div class="mt-10">
+<div class="mt-10" x-data="">
     @if ($isSeparatePage)
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -76,7 +76,8 @@
                             </tr>            
                         @else
                             @foreach ($myBoxers as $item)
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                    @click="window.open('/profile/{{$item['boxer_id']}}', '_blank').focus();">
                                     <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                                         {{$item['boxer']['division_detail']['name']}}
                                     </th>

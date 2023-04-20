@@ -68,7 +68,7 @@
             </div>
 
             @if(!$user->hasRole('Boxer'))
-                @livewire('my-boxer', ['editable' => false, 'separatable' => false])
+                @livewire('my-boxer', ['userId' => $user->id, 'editable' => false, 'separatable' => false])
             @endif
 
             @if($user->hasRole('MatchMaker'))

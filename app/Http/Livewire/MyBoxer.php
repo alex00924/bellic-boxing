@@ -12,7 +12,7 @@ class MyBoxer extends Component
     public $boxer_id = null;
     public $canEdit = true;
     public $isSeparatePage = true;
-
+    public $ownerId = null;
     protected function rules()
     {
         return [
@@ -20,17 +20,22 @@ class MyBoxer extends Component
         ];
     }
 
-    public function mount($editable = true, $separatable = true)
+    public function mount($userId = null, $editable = true, $separatable = true)
     {
         $this->canEdit = $editable;
         $this->isSeparatePage = $separatable;
-
+        if (empty($userId)) {
+            $this->ownerId = auth()->user()->id;
+        } else {
+            $this->ownerId = $userId;
+        }
         $this->getBoxers();
     }
 
     private function getBoxers()
     {
-        $this->myBoxers = auth()->user()->myBoxers->toArray();
+        $owner = User::where('id', $this->ownerId)->first();
+        $this->myBoxers = $owner->myBoxers->toArray();
         $boxerIds = [];
         foreach ($this->myBoxers as $idx => $boxer) {
             $boxerIds[$idx] = $boxer['boxer_id'];
@@ -60,7 +65,7 @@ class MyBoxer extends Component
 
         \App\Models\MyBoxer::create([
             'boxer_id' => $this->boxer_id,
-            'owner_id' => auth()->user()->id
+            'owner_id' => $this->ownerId
         ]);
         $this->boxer_id = null;
         $this->getBoxers();
