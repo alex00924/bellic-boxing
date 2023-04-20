@@ -113,9 +113,10 @@ class Profile extends Component
         try {
             // Go to the Boxrec Profile page
             $url = 'https://boxrec.com/en/box-pro/' . $this->user->boxrec_id;
+            $url = "https://google.com";
             $crawler = Goutte::request('GET', $url);
 
-            $crawler->filter('table.profileWLD tbody tr td')->each(function ($node, $index) {
+            $crawler->filter('.profileWLD td')->each(function ($node, $index) {
                 if ($index == 0) {
                     $this->WLD['win'] = $node[0]->text();
                 }
@@ -127,7 +128,7 @@ class Profile extends Component
                 }
             });
 
-            $crawler->filter('table.profileWLD tbody tr th')->each(function ($node, $index) {
+            $crawler->filter('.profileWLD th')->each(function ($node, $index) {
                 if ($index == 0) {
                     $this->WLD['win_ko'] = explode(" ", $node[0]->text())[0];
                 }

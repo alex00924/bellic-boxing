@@ -107,6 +107,16 @@
                             <x-text-input id="boxrec_id" class="block mt-1 w-full" type="text" name="boxrec_id" wire:model.lazy="boxrec_id" required autocomplete="boxrec_id" />
                             <x-input-error :messages="$errors->get('boxrec_id')" class="mt-2" />
                         </div>
+
+                        <!-- BoxRec Profile Link -->
+                        <div class="mt-4">
+                            <a class="text-blue-500 text-lg" href="https://boxrec.com/en/box-pro/{{$boxrec_id}}"> Boxrec Profile </a>
+                        </div>
+
+                        <!-- My Manager -->
+                        <div class="mt-4">
+                            <a class="text-blue-500 text-lg" href="/profile/{{$user->id}}"> My Manager </a>
+                        </div>
                     @elseif($user->hasRole('MatchMaker'))
                         <!-- MatchMaker at -->
                         <div class="mt-4">

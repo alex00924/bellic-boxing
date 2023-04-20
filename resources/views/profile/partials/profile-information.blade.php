@@ -62,7 +62,7 @@
 
                     <!-- Boxrec Profile -->
                     <p class="mt-4">
-                        <a class="font-medium text-gray-500" href="https://boxrec.com/en/box-pro/{{$boxrec_id}}">Boxrec Profile</a>
+                        <a class="font-medium text-blue-500 text-lg" href="https://boxrec.com/en/box-pro/{{$boxrec_id}}">Boxrec Profile</a>
                     </p>
                 @endif
             </div>

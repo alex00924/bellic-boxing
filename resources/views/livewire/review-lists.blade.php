@@ -1,6 +1,6 @@
 <div>
     <div class="px-12 py-5">
-        <h2 class="text-gray-300 text-3xl font-semibold">Reviews</h2>
+        <h2 class="text-gray-300 text-2xl font-semibold">Reviews</h2>
     </div>
 
     <div class="relative overflow-x-auto">
@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if(empty($fights))
+                @if(empty($reviews))
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" colspan="5" class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             No Reviews
@@ -46,7 +46,7 @@
     </div>
 
     <div class="px-12 py-5">
-        <h2 class="text-gray-300 text-3xl font-semibold">Rating</h2>
+        <h2 class="text-gray-300 text-2xl font-semibold">Rating</h2>
     </div>
-    <x-rating-mark :rating="$rating"/>
+    <x-rating-mark wire:model.lazy="rating"/>
 </div>

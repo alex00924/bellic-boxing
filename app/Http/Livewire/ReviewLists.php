@@ -3,22 +3,42 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\User;
 
 class ReviewLists extends Component
 {
     public $reviews = [];
     public $rating = 0;
+    public $user;
+    protected $listeners = ['create:review' => 'refreshReview'];
+    public function refreshReview()
+    {
+        $this->filterReview();
+    }
+
     public function mount($id = null)
     {
-        $user = null;
+        $this->user = null;
         if (!empty($id)) {
-            $user = User::find($id);
+            $this->user = User::find($id);
         }
 
         if (empty($this->user)) {
-            $user = auth()->user();
+            $this->user = auth()->user();
         }
-        $this->reviews = $user->myReviews()->get()->toArray();
+        $this->filterReview();
+    }
+
+    private function filterReview()
+    {
+        $this->reviews = [];
+        $this->rating = 0;
+
+        if (empty($this->user)) {
+            return;
+        }
+
+        $this->reviews = $this->user->myReviews()->get()->toArray();
         if (count($this->reviews) > 0) {
             foreach ($this->reviews as $review) {
                 $this->rating += $review['mark'];

@@ -74,6 +74,21 @@ class User extends Authenticatable
 
     public function myReviews()
     {
-        return $this->hasMany('App\Models\Review', 'id', 'to');
+        return $this->hasMany('App\Models\Review', 'to', 'id');
+    }
+
+    public function countryDetail()
+    {
+        return $this->belongsTo('App\Models\Country', 'country', 'id');
+    }
+
+    public function stateDetail()
+    {
+        return $this->belongsTo('App\Models\State', 'state', 'id');
+    }
+
+    public function divisionDetail()
+    {
+        return $this->belongsTo('App\Models\Division', 'division', 'id');
     }
 }
