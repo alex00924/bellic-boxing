@@ -14,6 +14,22 @@ php artisan key:generate
 npm install
 ```
 
+This application is using GD extension to resize signature image.
+If the server is not activated this extension, activate it.
+
+In windows xampp, you can update it in php.ini file
+
+```
+extension=gd
+```
+
+In ubuntu, you have to install extension
+
+```
+sudo apt-get install php8.1-gd
+sudo service apache2 restart
+```
+
 ### Create Database
 
 Configuration database settings in .env file.
@@ -64,4 +80,22 @@ php artisan vendor:publish --tag=simple-select:config
 php artisan vendor:publish --tag=simple-select:views
 # Javascript library
 npm install -D @popperjs/core
+```
+
+### Image Library - intervention/image
+
+```
+composer require intervention/image
+```
+
+### PDF Library - setasign/fpdi-fpdf
+
+```
+composer require setasign/fpdi-fpdf
+```
+
+### Web Scraping Library - guzzlehttp/guzzle
+
+```
+composer require guzzlehttp/guzzle
 ```
