@@ -66,5 +66,7 @@
                     toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
                 })
         </script> --}}
+        @stack('scripts')
+
     </body>
 </html>

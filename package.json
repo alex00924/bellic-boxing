@@ -15,5 +15,7 @@
         "tailwindcss": "^3.3.1",
         "vite": "^4.0.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "pdf-lib": "^1.17.1"
+    }
 }
